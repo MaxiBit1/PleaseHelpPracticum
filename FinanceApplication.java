@@ -17,7 +17,7 @@ public class FinanceApplication {
 
     void convert() {
         System.out.println("Ваши сбережения: " + balance + " RUB");
-        System.out.println("В какую валюту хотите конвертировать? Доступные варианты: 1 - USD, 2 - EUR или 3 - JPY.");
+        System.out.println("В какую валюту хотите конвертировать?");
         String currency = scanner.nextLine();
         converter.convert(balance, currency);
     }
@@ -31,7 +31,7 @@ public class FinanceApplication {
             expenses.put(categoryName, new ArrayList<Double>());
         }
         System.out.println("Введите размер траты:");
-        double expense = scanner.nextDouble();
+        double expense = Double.parseDouble(scanner.nextLine());
         if (balance >= expense) {
             ArrayList<Double> category = expenses.get(categoryName);
             category.add(expense);

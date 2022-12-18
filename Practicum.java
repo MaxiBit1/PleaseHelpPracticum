@@ -5,22 +5,22 @@ public class Practicum {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите размер остатка на вашем счёте:");
-        double balance = scanner.nextDouble();
+        double balance = Double.parseDouble(scanner.nextLine());
 
         FinanceApplication fin = new FinanceApplication(balance, scanner);
 
         while (true) {
             printMenu();
 
-            int command = scanner.nextInt();
-            if (command == 0) {
+            String command = scanner.nextLine();
+            if (command.equals("0")) {
                 System.out.println("Выход.");
                 break;
-            } else if (command == 1) {
+            } else if (command.equals("1")) {
                 fin.convert();
-            } else if (command == 2) {
+            } else if (command.equals("2")) {
                 fin.saveExpense();
-            } else if (command == 3) {
+            } else if (command.equals("3")) {
                 fin.printAllExpenses();
             } else {
                 System.out.println("Извините, такой команды пока нет.");
